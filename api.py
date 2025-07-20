@@ -22,7 +22,7 @@ def render_status(status):
     return html, 200, {'Content-Type': 'text/html'}
 
 @app.get("/drive/forward")
-def drive(request: Request):
+def drive(request):
     controller.forward()
     status = controller.status()
     return render_status(status)
@@ -31,7 +31,7 @@ def drive(request: Request):
 
 
 @app.get("/drive/reverse")
-def reverse(request: Request):
+def reverse(request):
     controller.reverse()
     status = controller.status()
     return render_status(status)
@@ -40,7 +40,7 @@ def reverse(request: Request):
 
 
 @app.get("/stop")
-def drive(request: Request):
+def drive(request):
     controller.stop()
     status = controller.status()
     return render_status(status)
@@ -49,7 +49,7 @@ def drive(request: Request):
 
 
 @app.get("/turn/left")
-def turn_left(request: Request):
+def turn_left(request):
     controller.left()
     status = controller.status()
     return render_status(status)
@@ -58,7 +58,7 @@ def turn_left(request: Request):
 
 
 @app.get("/turn/right")
-def turn_right(request: Request):
+def turn_right(request):
     controller.right()
     status = controller.status()
     return render_status(status)
@@ -67,7 +67,7 @@ def turn_right(request: Request):
 
 
 @app.get("/turn/straight")
-def turn_straight(request: Request):
+def turn_straight(request):
     controller.straight()
     status = controller.status()
     return render_status(status)
@@ -76,7 +76,7 @@ def turn_straight(request: Request):
 
 
 @app.get("/") #, response_class=HTMLResponse)
-def home(request: Request):
+def home(request):
     template = env.get_template('home.html')
     html = template.render(name="Pi Zero")
     return html, 200, {'Content-Type': 'text/html'}
