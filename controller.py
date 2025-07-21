@@ -5,8 +5,10 @@ import time
 
 try:
     import automationhat
+    print("Running in production environment")
 except ImportError:
     import mock_automationhat as automationhat
+    print("Running in testing environment")
 
 class Controller:
     def __init__(self):
